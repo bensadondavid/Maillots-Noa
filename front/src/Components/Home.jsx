@@ -1,11 +1,11 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import SimpleSwiper from "./Slider"; 
-import BigSwiper from "./BigSlider";
+import Carousel from "./Carousel";
 
 const Home = () => {
   return (
+    <>
     <div className="Home">
       <Header />
       <div className="shop">
@@ -15,16 +15,17 @@ const Home = () => {
           <button className="shop-button">SHOP NOW</button>
         </div>
       </div>
-      <div className="slider">
-      <SimpleSwiper />
-      <SimpleSwiper />
-      <SimpleSwiper />
-      <SimpleSwiper />
-      <SimpleSwiper />
       </div>
-      <hr />
+      <p className="carousel-title">See what we do</p>
+      <div className="carousel-container">
+      <Carousel />
+      <Carousel />
+      <Carousel />
+      <Carousel />
+      </div>
+      <hr className="hr-home" />
       <Footer />
-    </div>
+    </>
   );
 };
 

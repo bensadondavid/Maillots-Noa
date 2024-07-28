@@ -201,40 +201,84 @@ nav a:hover{
     opacity: 10%;
 }
 
-/* Swiper */
-.slider{
+
+/* Carousel */
+
+.carousel-title{
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    padding: 30px;
+}
+
+.carousel-container{
+    width: 80%;
+    margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding: 30px;
-    width: 80%;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 40px;
 }
 
-.swiper-container {
-    max-width: 15vw;
-  }
 
-  @media(max-width : 768px){
-    .swiper-container {
-        max-width: 60vw;
-        margin: 20px auto;
-      }
-  }
-  
-  .swiper-slide {
+.Carousel{
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .swiper-slide img {
+}
+
+.img-container{
+    height: 50vh;
     width: 100%;
+    position: relative;
+}
+
+.img-container img{
     height: 100%;
-    object-fit: contain
-  }
+    width: 100%;
+}
+
+.previous-button{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: large;
+    border: none;
+    color: #000;
+    border-radius: 30%;
+    padding: 5px;
+}
+
+.next-button{
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    font-size: large;
+    border: none;
+    color: #000;
+    border-radius: 30%;
+    padding: 5px;
+}
+
+.next-button:hover, .previous-button:hover{
+    background-color: rgb(255, 255, 255);
+}
 
 /* Footer */
+
+.Footer{
+    padding-top: 10px;
+    font-family: "Montserrat", sans-serif; ;
+}
+
+.hr-home{
+    width: 80vw;
+    opacity: 30%;
+    margin: auto;
+}
 
 .Footer img{
     height: 24px;
