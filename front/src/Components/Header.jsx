@@ -1,24 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Form, Link } from "react-router-dom";
+import ChangeScreenWidth from "./Screenwidth";
 
 const Header = () => {
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [hamBtn, setHamBtn] = useState(false);
-
-  const ToggleBtn = () => {
-    setHamBtn(!hamBtn);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  
+const {screenWidth, hamBtn, ToggleBtn} = ChangeScreenWidth()
 
   return (
     <>

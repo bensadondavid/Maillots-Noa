@@ -2,8 +2,12 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Carousel from "./Carousel";
+import ChangeScreenWidth from "./Screenwidth";
 
 const Home = () => {
+
+  const {screenWidth} = ChangeScreenWidth()
+
   return (
     <>
     <div className="Home">
@@ -19,9 +23,13 @@ const Home = () => {
       <p className="carousel-title">See what we do</p>
       <div className="carousel-container">
       <Carousel />
+      {screenWidth > 768 ? 
+      <>
       <Carousel />
       <Carousel />
       <Carousel />
+      </> 
+      : null}
       </div>
       <hr className="hr-home" />
       <Footer />

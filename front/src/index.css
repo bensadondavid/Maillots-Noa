@@ -212,7 +212,7 @@ nav a:hover{
 }
 
 .carousel-container{
-    width: 80%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -223,15 +223,28 @@ nav a:hover{
     padding-bottom: 40px;
 }
 
+.big-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
 
 .Carousel{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 22vw;
+}
+
+@media (max-width : 768px) {
+    .Carousel{
+        width: 80vw;
+    }
 }
 
 .img-container{
-    height: 50vh;
+    height: auto;
     width: 100%;
     position: relative;
 }
