@@ -59,6 +59,16 @@ const Testimonies = () => {
     setIndex(previousIndex => (previousIndex === testimonies.length - 1 ? 0 : previousIndex + 1));
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      NextItem();
+    }, 6000); 
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
     <div className="testimonies-container">
