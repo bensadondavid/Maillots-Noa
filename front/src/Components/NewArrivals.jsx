@@ -27,7 +27,7 @@ const NewArrivals = ()=>{
                 <form method="POST" className="filters-form">
                     <select name="category">
                         <option value="select-category">Select a category</option>
-                        <option value="swimwear">swimear</option>
+                        <option value="swimwear">swimwear</option>
                         <option value="clothes">clothes</option>
                         <option value="bags">bags</option>
                     </select>
