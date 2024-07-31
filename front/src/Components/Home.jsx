@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Carousel from "./Carousel";
 import ChangeScreenWidth from "./Screenwidth";
 import Testimonies from "./Testimonies";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { screenWidth } = ChangeScreenWidth();
@@ -16,7 +17,7 @@ const Home = () => {
           <img src="/plage-maillot.jpg" alt="plage" className="plage-img" />
           <div className="shop-p-btn">
             <p>DISCOVER NEW ARRIVALS</p>
-            <button>SHOP NOW</button>
+            <Link to='/new-arrivals'><button>SHOP NOW</button></Link>
           </div>
         </div>
       </div>
