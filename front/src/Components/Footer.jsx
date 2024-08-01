@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 const Footer = ()=>{
 
@@ -9,7 +10,7 @@ const Footer = ()=>{
             <div className="join">
                 <h4>Join Us</h4>
                 <p>Join now and receive a $20 sign up reward to spend on your next purchase !</p>
-                <button>Register</button>
+                <Link to='/register'><button>Register</button></Link>
             </div>
             <div className="networks">
                 <h4>Follow us</h4>

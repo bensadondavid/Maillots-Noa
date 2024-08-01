@@ -13,8 +13,8 @@ const NewArrivals = ()=>{
 
     return(
         <>
+        <Header/>
         <div className="New-arrivals">
-            <Header/>
             <hr className="hr-links"/>
             <h2>All New In</h2>
             {!filters ? <button onClick={HandleFilters} className="filters-btn">

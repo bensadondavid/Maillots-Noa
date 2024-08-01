@@ -13,8 +13,8 @@ const BestSellers = ()=>{
 
     return(
         <>
+        <Header/>
         <div className="New-arrivals">
-            <Header/>
             <hr className="hr-links"/>
             <h2>Best Sellers</h2>
             {!filters ? <button onClick={HandleFilters} className="filters-btn">

@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <>
+      <Header />
       <div className="Home">
-        <Header />
         <div className="shop">
           <img src="/plage-maillot.jpg" alt="plage" className="plage-img" />
           <div className="shop-p-btn">

@@ -85,18 +85,19 @@ const {screenWidth, hamBtn, ToggleBtn} = ChangeScreenWidth()
                   <p className="title1">Noa</p>
                 </Link>
                 <p className="title2">Swimsuit brand</p>
-                {screenWidth < 768 && hamBtn ?(
-                  <form>
-                    <input type="text" name="search" placeholder="Search swimwear, beachwear and more..." />
-                  </form>
-                ) : null}
               </div>
             </div>
             {screenWidth > 768 || hamBtn ? 
                   <div className="cart">
+                      <Link to='/wishlist'>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="transparent" stroke="black" strokeWidth={2} className="heart"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      </Link>
+                      <Link to='/cart'>
                       <svg className="cart-icon" fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" id="fi_11530382"><g fill="rgb(0,0,0)"><path d="m5 7.75c-.13807 0-.25.11193-.25.25v13c0 .1381.11193.25.25.25h14c.1381 0 .25-.1119.25-.25v-13c0-.13807-.1119-.25-.25-.25zm-1.75.25c0-.9665.7835-1.75 1.75-1.75h14c.9665 0 1.75.7835 1.75 1.75v13c0 .9665-.7835 1.75-1.75 1.75h-14c-.9665 0-1.75-.7835-1.75-1.75z"></path><path d="m12 2.75c-1.5188 0-2.75 1.23122-2.75 2.75v3.5c0 .41421-.33579.75-.75.75s-.75-.33579-.75-.75v-3.5c0-2.34721 1.90279-4.25 4.25-4.25 2.3472 0 4.25 1.90279 4.25 4.25v3.5c0 .41421-.3358.75-.75.75s-.75-.33579-.75-.75v-3.5c0-1.51878-1.2312-2.75-2.75-2.75z"></path></g></svg>
+                      </Link>
+                      <Link to='/register'>
                       <svg id="fi_2321232" enableBackground="new 0 0 32 32" height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg" className="member"><path d="m21.817 15.475c1.349-1.433 2.183-3.356 2.183-5.475 0-4.411-3.589-8-8-8s-8 3.589-8 8c0 2.119.834 4.042 2.183 5.475-3.998 2.231-6.183 6.957-6.183 13.525 0 .553.448 1 1 1h22c.553 0 1-.447 1-1 0-6.569-2.185-11.294-6.183-13.525zm-5.817-11.475c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6zm-9.982 24c.157-4.234 1.388-9.193 5.883-11.143 1.2.721 2.6 1.143 4.099 1.143s2.899-.422 4.099-1.143c4.494 1.949 5.726 6.909 5.882 11.143z"></path></svg>
+                      </Link>
                   </div>
             : null}
 

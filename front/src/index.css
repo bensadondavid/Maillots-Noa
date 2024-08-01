@@ -62,6 +62,12 @@
     align-items: center;
     flex-wrap: wrap;
   }
+  @media(max-width : 768px){
+    .contact, .cart{
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
   
   .cart .heart:hover {
     stroke: #ff1493;
@@ -86,7 +92,7 @@
     width: 100%;
     margin: 20px 0;
   }
-  
+
   .title1 {
     font-size: 2rem;
   }
@@ -449,6 +455,7 @@
   @media(max-width : 768px){
     .about {
         height: 80vh;
+        margin-top: 40px;
     }
   }
   
