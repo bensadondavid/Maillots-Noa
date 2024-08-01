@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Card from "./Card";
-
+import Footer from "./Footer";
 
 const Promotions = ()=>{
 
@@ -55,6 +55,7 @@ const Promotions = ()=>{
                 <Card />
             </div>
         </div>
+        <Footer />
         </>
     )
 }

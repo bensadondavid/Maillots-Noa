@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import Card from "./Card";
+import Footer from "./Footer";
 
 
 const BestSellers = ()=>{
@@ -55,6 +56,7 @@ const BestSellers = ()=>{
                 <Card />
             </div>
         </div>
+        <Footer />
         </>
     )
 }

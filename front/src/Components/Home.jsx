@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Carousel from "./Carousel";
@@ -89,7 +89,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <hr className="hr-home" />
       <Footer />
     </>
   );
