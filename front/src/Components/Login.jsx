@@ -44,7 +44,7 @@ const Login = () => {
       <Header />
       <div className='Register'>
         <img src="register-photo.jpg" />
-        <p>Join Us</p>
+        <p>Log In</p>
         <div className='register-container'>
           <form method='POST' className='register-form' onSubmit={HandleForm}>
             
@@ -56,7 +56,8 @@ const Login = () => {
             
             <button type='submit'>Log In</button>
           </form>
-          <Link to='/all'>Return to store</Link>
+          <Link  to=''>Forgot your password ?</Link>
+          <Link  to='/register'>Don't have an account yet ?</Link>
         </div>
       </div>
       <Footer />
