@@ -27,23 +27,23 @@ const Register = () => {
   const HandleForm = async(e)=>{
       e.preventDefault()
       try{
-        const response = await fetch('/register', {
+        const response = await fetch('http://localhost:4000/register', {
           method : 'POST', 
           headers : {'Content-type' : 'application/json'}, 
           body : JSON.stringify(RegisterForm)
         })
         const data = await response.json()
-        alert(data.message)
+        if(data.message === 'User already exists'){
+        alert('User Already exists')
+        }
+        else if(data.message){
+          alert('Registration successful')
+        }
       }
       catch(error){
         console.error('error : ', error)
       }
   }
-
-  useEffect(()=>{
-    console.log(RegisterForm);
-  }, [RegisterForm])
-
 
   return (
     <>
