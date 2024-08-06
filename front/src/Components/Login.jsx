@@ -21,13 +21,26 @@ const Login = () => {
   const HandleForm = async(e)=>{
       e.preventDefault()
       try{
-        const response = await fetch('/login', {
+        const response = await fetch('http://localhost:4000/login', {
           method : 'POST', 
           headers : {'Content-type' : 'application/json'}, 
           body : JSON.stringify(LoginForm)
         })
+
         const data = await response.json()
-        alert(data.message)
+
+        if(data.message === 'Wrong Email'){
+          alert('Wrong Email')
+        }
+        else if(data.message === 'Wrong Password'){
+          alert('Wrong Password')
+        }
+        else if(data.message === 'Logged In'){
+          alert('Successfully Logged In')
+        }
+        else{
+          alert('Internal Server Error')
+        }
       }
       catch(error){
         console.error('error : ', error)

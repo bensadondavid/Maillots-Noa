@@ -38,6 +38,7 @@ const Register = () => {
         }
         else if(data.message){
           alert('Registration successful')
+          window.location.href ='http://localhost:5173/login'
         }
       }
       catch(error){

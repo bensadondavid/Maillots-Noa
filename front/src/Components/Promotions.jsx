@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Card from "./Card";
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
 
 const Promotions = ()=>{
 
+    // filters
     const [ToggleFilters, setToggleFilters] = useState(false)
     const [filters, setFilters] = useState({
         category : '',
@@ -27,7 +29,7 @@ const Promotions = ()=>{
     const SubmitForm = async(e)=>{
         e.preventDefault()
         try{
-        const response =  await fetch('http://localhost:4000/promotions', {
+        const response =  await fetch('http://localhost:4000/all', {
             method : 'POST',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify(filters)
@@ -40,9 +42,52 @@ const Promotions = ()=>{
         }
     }  
 
+    // Cart
+    const cart = useSelector((state) => state.cart.cart)
+    const [items, setItems] = useState([])
+    const fetchItems = async()=>{
+        try{
+        const response = await fetch('http://localhost:4000/cards', {
+            method : 'GET', 
+            headers : {'Content-type' : 'application/json'},
+        })
+        const data = await response.json()
+        setItems(data)
+        console.log(data);
+        console.log(items);
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
     useEffect(()=>{
-        console.log(filters)
-    },[filters])
+        fetchItems()
+    },[])
+
+    // Wishlist
+
+    const wish = useSelector((state) => state.wish.wish)
+    const [likes, setLikes] = useState([])
+    const fetchLikes = async()=>{
+        try{
+        const response = await fetch('http://localhost:4000/wish', {
+            method : 'GET', 
+            headers : {'Content-type' : 'application/json'},
+        })
+        const data = await response.json()
+        setLikes(data)
+        console.log(data);
+        console.log(likes);
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchLikes()
+    },[])
 
 
     return(
@@ -50,7 +95,7 @@ const Promotions = ()=>{
         <Header/>
         <div className="New-arrivals">
             <hr className="hr-links"/>
-            <h2>Promotions</h2>
+            <h2>All</h2>
             {!ToggleFilters ? <button onClick={HandleFilters} className="filters-btn">
             <svg height="512" viewBox="0 0 32 32" width="512" xmlns="http://www.w3.org/2000/svg" id="fi_6526846"><g id="Filters"><path d="m4 7h16.18a3 3 0 0 0 5.64 0h2.18a1 1 0 0 0 0-2h-2.18a3 3 0 0 0 -5.64 0h-16.18a1 1 0 0 0 0 2zm19-2a1 1 0 1 1 -1 1 1 1 0 0 1 1-1z"></path><path d="m28 15h-16.18a3 3 0 0 0 -5.64 0h-2.18a1 1 0 0 0 0 2h2.18a3 3 0 0 0 5.64 0h16.18a1 1 0 0 0 0-2zm-19 2a1 1 0 1 1 1-1 1 1 0 0 1 -1 1z"></path><path d="m28 25h-7.18a3 3 0 0 0 -5.64 0h-11.18a1 1 0 0 0 0 2h11.18a3 3 0 0 0 5.64 0h7.18a1 1 0 0 0 0-2zm-10 2a1 1 0 1 1 1-1 1 1 0 0 1 -1 1z"></path></g></svg>
             Filters </button> :
@@ -67,7 +112,7 @@ const Promotions = ()=>{
                         <option value="bags">bags</option>
                     </select>
                     <select name="size" value={filters.size} onChange={HandleChange}>
-                        <option value="select-size" >Select a size</option>
+                        <option value="select-size" category={filters.size}>Select a size</option>
                         <option value="s">S</option>
                         <option value="m">M</option>
                         <option value="l">L</option>
@@ -77,17 +122,11 @@ const Promotions = ()=>{
                 </form>
             </div>
             </>
-        }
-                
+        } 
             <div className="new-arrivals-container">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {items.map((item, index)=>(
+                    <Card key={index} item={item} />
+                ))}
             </div>
         </div>
         <Footer />

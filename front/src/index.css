@@ -800,3 +800,11 @@
     align-items: center;
     gap: 20px;
   }
+
+
+/* Redux */
+
+.redux-add-cart, .redux-add-wish{
+  border: none;
+  background-color: white;
+}

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Card from "./Card";
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
 
 const All = ()=>{
 
+    // filters
     const [ToggleFilters, setToggleFilters] = useState(false)
     const [filters, setFilters] = useState({
         category : '',
@@ -40,6 +42,54 @@ const All = ()=>{
         }
     }  
 
+    // Cart
+    const cart = useSelector((state) => state.cart.cart)
+    const [items, setItems] = useState([])
+    const fetchItems = async()=>{
+        try{
+        const response = await fetch('http://localhost:4000/cards', {
+            method : 'GET', 
+            headers : {'Content-type' : 'application/json'},
+        })
+        const data = await response.json()
+        setItems(data)
+        console.log(data);
+        console.log(items);
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchItems()
+    },[])
+
+    // Wishlist
+
+    const wish = useSelector((state) => state.wish.wish)
+    const [likes, setLikes] = useState([])
+    const fetchLikes = async()=>{
+        try{
+        const response = await fetch('http://localhost:4000/wish', {
+            method : 'GET', 
+            headers : {'Content-type' : 'application/json'},
+        })
+        const data = await response.json()
+        setLikes(data)
+        console.log(data);
+        console.log(likes);
+        }
+        catch(error){
+            console.error(error)
+        }
+    }
+
+    useEffect(()=>{
+        fetchLikes()
+    },[])
+
+
     return(
         <>
         <Header/>
@@ -74,14 +124,9 @@ const All = ()=>{
             </>
         } 
             <div className="new-arrivals-container">
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                {items.map((item, index)=>(
+                    <Card key={index} item={item} />
+                ))}
             </div>
         </div>
         <Footer />
